@@ -1,4 +1,4 @@
-(ns url-shortener.utils.core 
+(ns url-shortener.helpers.helper
   (:require
     [clojure.data.json :as json]))
 
@@ -23,5 +23,5 @@
   (response 500 "Internal Server Error" nil))
 
 (defn gen-id []
-  (let [chars (map char (concat (range 48 57) (range 65 90) (range 97 122)))] 
+  (let [chars (map char (concat (range 48 57) (range 65 90) (range 97 122)))]
     (apply str (repeatedly 10 #(rand-nth chars)))))

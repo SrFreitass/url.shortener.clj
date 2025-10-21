@@ -1,7 +1,11 @@
 services:
-  redis:
-    image: redis:8-alpine
+  app:
+    build: .
     volumes:
-      - /var/lib/redis:/var/lib/redis
+      - .:/app
+      - datomic:/app/.datomic/data
     ports:
-      - 6379:6379
+      - ${PORT}:${PORT}
+    env_file: .env
+volumes:
+  datomic:

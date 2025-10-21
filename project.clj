@@ -14,5 +14,6 @@
                  [com.thheller/shadow-css "0.6.2"]
                  [io.github.tonsky/clj-reload "1.0.0"]
                  [org.clojure/clojurescript "1.12.42"]
-                 [environ "1.2.0"]]
+                 [com.datomic/local "1.0.291"]
+                 [lynxeyes/dotenv "1.1.0"]]
   :repl-options {:init-ns url-shortener.core})
