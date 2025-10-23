@@ -23,7 +23,7 @@
         [:img {:src "https://www.datomic.com/images/datomic-logo-160x130.png" :width 130}]]
        [:h2 {:class "text-3xl text-center font-bold mb-4 text-[#92DD45]"} "Encurtador de URL"]
        (if (string/blank? short-id)
-         [:div [:input {:type "URL" :placeholder "Insira uma URL" :class "w-full mb-4 border border-white/20 p-2 rounded-md text-white/80" :name "url"}]
+         [:div [:input {:type "URL" :required "" :placeholder "Insira uma URL" :class "w-full mb-4 border border-white/20 p-2 rounded-md text-white/80" :name "url"}]
           [:button {:type "submit" :class "w-full py-2 px-8 bg-[#5782D9] rounded-md font-semibold"} "Encurtar URL"]]
 
          [:div [:input {:type "URL" :disabled true :value (str (env "FRONTEND_URL") short-id) :class "w-full mb-4 border border-white/20 p-2 rounded-md text-white/80" :name "url"}]
