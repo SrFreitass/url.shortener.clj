@@ -1,5 +1,5 @@
 (ns front-end.index
-  (:require [hiccup2.core :refer [ html ]]
+  (:require [hiccup2.core :refer [ html raw ]]
             [clojure.string :as string]
             [dotenv :refer [env]])
   (:gen-class))
@@ -10,11 +10,14 @@
   (let [q (:query-string req) short-id (if (not= q nil) (string/replace-first q #"short-id=" "") "")]
   (str
    (html
+    (raw "<!DOCTYPE html>")
     [:html
      [:head
+      [:meta {:charset "UTF-8"}]
+      [:meta {:name "viewport" :content "device-width, initial-scale=1.0"}]
       [:title "Encurtador de URL"]
       [:script {:src "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"}]]
-     [:body {:class "w-full min-h-screen flex justify-center items-center bg-[#09090B] text-white bg-cover bg-center bg-[url('https://i.pinimg.com/originals/12/b2/3a/12b23a7752e8a7a4464c1ff5e596237f.gif')]"}
+     [:body {:class "w-full min-h-screen flex justify-center items-center px-4 bg-[#09090B] text-white bg-cover bg-center bg-[url('https://i.pinimg.com/originals/12/b2/3a/12b23a7752e8a7a4464c1ff5e596237f.gif')]"}
       [:div { :class "absolute min-h-screen w-full bg-black/40 backdrop-blur-sm" }]
       [:form {:method "POST" :action "/api/short-url" :class "flex flex-col items-center w-full max-w-xl z-10"}
        [:div {:class "flex gap-4 items-center"}
